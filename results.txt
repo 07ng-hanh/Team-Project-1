@@ -1,0 +1,32 @@
+===== BACKTEST RESULTS (Sorted by Profit) =====
+
+VIC    :   262.35%   |   Final Value: 362,354,880 VND
+VHM    :   180.83%   |   Final Value: 280,830,400 VND
+LPB    :   153.81%   |   Final Value: 253,813,600 VND
+HDB    :   109.31%   |   Final Value: 209,308,704 VND
+GVR    :   108.37%   |   Final Value: 208,372,736 VND
+STB    :   103.87%   |   Final Value: 203,865,008 VND
+FPT    :    76.24%   |   Final Value: 176,235,536 VND
+MWG    :    72.29%   |   Final Value: 172,285,664 VND
+TCB    :    68.38%   |   Final Value: 168,377,376 VND
+MBB    :    62.65%   |   Final Value: 162,652,896 VND
+VRE    :    53.41%   |   Final Value: 153,414,304 VND
+VJC    :    52.84%   |   Final Value: 152,839,728 VND
+VPB    :    52.37%   |   Final Value: 152,373,616 VND
+SSI    :    47.14%   |   Final Value: 147,143,760 VND
+CTG    :    40.00%   |   Final Value: 139,996,432 VND
+VPL    :    36.50%   |   Final Value: 136,495,888 VND
+ACB    :    36.25%   |   Final Value: 136,252,192 VND
+HPG    :    25.59%   |   Final Value: 125,589,936 VND
+VIB    :    24.42%   |   Final Value: 124,420,208 VND
+DGC    :    21.65%   |   Final Value: 121,646,432 VND
+SHB    :    16.15%   |   Final Value: 116,148,552 VND
+VCB    :    -7.83%   |   Final Value: 92,174,944 VND
+SAB    :    -8.51%   |   Final Value: 91,488,464 VND
+BID    :    -9.83%   |   Final Value: 90,166,120 VND
+GAS    :   -16.07%   |   Final Value: 83,933,488 VND
+SSB    :   -16.84%   |   Final Value: 83,164,352 VND
+PLX    :   -17.19%   |   Final Value: 82,811,744 VND
+TPB    :   -22.32%   |   Final Value: 77,680,000 VND
+VNM    :   -23.25%   |   Final Value: 76,746,160 VND
+MSN    :   -31.63%   |   Final Value: 68,366,000 VND
