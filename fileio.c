@@ -68,7 +68,6 @@ void SaveTradeLog(Stock* head) {
   // %-7s prints a string with at least 7 characters wide, padding to the right
   // Mainly used for beautiful format
 
-
   fprintf(fp,
           "-----------------------------------"
           "-----------------------------------\n");
@@ -77,7 +76,7 @@ void SaveTradeLog(Stock* head) {
 
   Stock* s = head;
   while (s) {
-    Trade* t = s->trade_list;
+    Trade* t = s->trade_stack;
     while (t) {
       fprintf(fp, "%-7s %-8s %-12s %10.2f %12d ", t->action, t->symbol,
               t->date, t->price, t->quantity);

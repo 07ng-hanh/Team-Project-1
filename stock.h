@@ -14,8 +14,8 @@ typedef struct StockDay {
   float low;
   float close;
   float volume;
-  float ema9;
-  float ema20;
+  float sma9;
+  float sma20;
   float bb_upper;
   float bb_lower;
   float bb_middle;
@@ -48,8 +48,8 @@ typedef struct Stock {
   char symbol[10]; // Stock ticker/symbol (e.g. VIC, VHM)
   StockDay* price_list; 
   // Pointer to StockDay linked list: all market price data for this stock
-  Trade* trade_list; 
-  // Pointer to Trade linked list: all buy/sell transactions made for this stock
+  Trade* trade_stack; 
+  // Pointer to Trade stack: all buy/sell transactions made for this stock
   float cash; 
   // Cash allocated or remaining for this stock position
   float final_value; // Final portfolio value after all trades for this stock
@@ -59,7 +59,7 @@ typedef struct Stock {
 // Stock is a linked list
 // It acts as a portfolio account for one stock:
 // - Contains ALL market data (historical prices & indicators) via price_list (StockDay)
-// - Contains ALL transactions (buy/sell orders) via trade_list (Trade)
+// - Contains ALL transactions (buy/sell orders) via trade_stack (Trade)
 // - Tracks cash and final profit for this individual stock
 
 Stock* LoadStockData(const char* filename, const char* start_date,

@@ -43,14 +43,10 @@ void BuyStock(Stock* stock, float price, const char* date, int day_index) {
   buy_trade->buy_day_index = day_index;
   buy_trade->next = NULL;
 
-  // Append new trade to linked list
-  if (stock->trade_list == NULL) {
-    stock->trade_list = buy_trade;  // If first trade, set as head
-  } else {
-    Trade* t = stock->trade_list;
-    while (t->next != NULL) t = t->next;  // Traverse to end of linked list
-    t->next = buy_trade;  // Link new trade to tail
-  }
+  // Push the new BUY trade onto the top of the stack (LIFO)
+  // The newest trade becomes the head of the stack.
+  buy_trade->next = stock->trade_stack;
+  stock->trade_stack = buy_trade;
 }
 
 // Checks if a BUY position is eligible for selling.
@@ -79,9 +75,9 @@ int CanSell(Trade* trade, int current_day_index) {
 //   day_index: Current trading day index
 void SellStock(Stock* stock, float price, const char* date, int day_index) {
   // Validate: stock and trade list must exist
-  if (!stock || !stock->trade_list) return;
+  if (!stock || !stock->trade_stack) return;
 
-  Trade* curr = stock->trade_list;
+  Trade* curr = stock->trade_stack;
 
   // Iterate through trade list to find first sellable BUY position
   while (curr) {
@@ -111,13 +107,9 @@ void SellStock(Stock* stock, float price, const char* date, int day_index) {
         sell_trade->next = NULL;
 
         // Append SELL trade to linked list
-        if (!stock->trade_list)
-          stock->trade_list = sell_trade;
-        else {
-          Trade* t = stock->trade_list;
-          while (t->next) t = t->next;
-          t->next = sell_trade;
-        }
+        // Push the new SELL trade onto the top of the stack
+        sell_trade->next = stock->trade_stack;
+        stock->trade_stack = sell_trade;
       }
 
       // Mark original BUY position as sold (prevents duplicate sells)

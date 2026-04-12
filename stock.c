@@ -64,7 +64,7 @@ Stock* LoadStockData(const char* filename, const char* start_date,
       // Cannot directly assign s->symbol = symbol
       // because they're pointers
       s->price_list = NULL;
-      s->trade_list = NULL;
+      s->trade_stack = NULL;
       s->cash = 0.0f;
       s->final_value = 0.0f;
       s->profit_pct = 0.0f;
@@ -91,9 +91,8 @@ Stock* LoadStockData(const char* filename, const char* start_date,
     day->volume = v;
     
     // Technical indicators (initialized to 0, computed later by other functions)
-    day->ema9 = day->ema20 = 0.0f;
-    // EMA = Exponential Moving Average (9/20-day trend indicators)
-    
+    day->sma9 = day->sma20 = 0.0f;
+    // SMA = Simple Moving Average
     day->bb_upper = day->bb_lower = day->bb_middle = 0.0f;
     // Bollinger Bands = Volatility bands around moving average (trading signal)
     
@@ -165,8 +164,8 @@ void FreeAllStocks(Stock* head) {
       free(tmp); // Free memory
     }
 
-    // Free all Trade nodes in trade_list
-    Trade* t = s->trade_list;
+    // Free all Trade nodes in trade_stack
+    Trade* t = s->trade_stack;
     while (t) {
       Trade* tmp = t;
       t = t->next;
